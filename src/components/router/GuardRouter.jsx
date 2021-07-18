@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+
+import { isEmpty } from "../../utils/util"
 class GuardRouter extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props) {
@@ -9,12 +11,25 @@ class GuardRouter extends Component {
     return <this.props.component {...this.props} pathName={this.props.path} />;
   }
   componentWillMount () {
-    if (this.props.meta) {
-      if (this.props.meta.isAuthorization) {
-        if (!localStorage.is_login) {
-          this.props.history.push("/Register");
+    // if (this.props.meta) {
+    //   if (this.props.meta.isAuthorization) {
+    //     if (!localStorage.is_login) {
+    //       this.props.history.push("/Register");
+    //     }
+    //   }
+    // }  
+    try {
+      const userInfo = localStorage.getItem('user_info');
+      if (isEmpty(userInfo)) {
+        this.props.history.push('/login')
+      } else {
+        if (Date.now() - userInfo.last_login_time > 15 * 24 * 60 * 60 * 1000) {
+          this.props.history.push('/login')
         }
       }
+    } catch (error) {
+      console.log(error);
+      this.props.history.push('/login')
     }
   }
   componentDidMount () {

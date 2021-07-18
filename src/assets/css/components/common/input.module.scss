@@ -1,0 +1,62 @@
+.inputBox {
+  margin: 10px;
+
+  .inputCont {
+    width: 250px;
+    border: 1px solid #1890ff;
+    display: flex;
+    align-items: center;
+
+    .iconFont {
+      width: 24px;
+      height: 24px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .input {
+      width: 200px;
+      height: 24px;
+      border: 0;
+      outline: none;
+      background-color: #fff;
+    }
+
+    input:-internal-autofill-selected {
+      background-color: #fff;
+    }
+  }
+
+  .ant-checkbox-wrapper {
+    width: 250px;
+  }
+
+  .inputErr {
+    width: 250px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: red;
+
+    .iconFontError {
+      width: 16px;
+      height: 16px;
+      color: red;
+      margin-right: 10px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+        color: red;
+
+      }
+    }
+  }
+
+}
