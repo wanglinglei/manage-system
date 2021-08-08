@@ -1,5 +1,15 @@
 .App {
-  text-align: center;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  display: flex;
+}
+
+.menubox {
+  width: 120px;
+  position: relative;
+}
+
+.App::-webkit-scrollbar {
+  width: 0;
 }
 
 .App-logo {
@@ -25,13 +35,22 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #232323;
+}
+
+.App-active {
+  color: red;
+}
+
+.activeLink img {
+  background-color: #FF6743;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

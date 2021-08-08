@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import { isEmpty } from './utils/util'
+import MyRoute from './components/router/MyRoute'
+import router from './routers'
+import Menubox from './components/common/Menubox'
 function App() {
+  const userInfo = localStorage.getItem('user_info');
+  const isLogin = !isEmpty(userInfo)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" >
+      {
+        isLogin && <Menubox multiple />
+      }
+      <MyRoute router={router}></MyRoute>
     </div>
   );
 }

@@ -1,0 +1,19 @@
+.registerPage {
+  width: 100%;
+  height: 100vh;
+  background: url('../../images/login_bg.jpg');
+  position: relative;
+
+  .registerModel {
+    width: 310px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
