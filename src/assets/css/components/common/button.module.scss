@@ -1,0 +1,26 @@
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+
+  .leftButton {
+    color: #1890ff;
+    background-color: #fff;
+    font-size: 16px;
+    padding: 5px 20px;
+    width: 80px;
+    border: 1px solid #1890ff;
+  }
+
+  .rightButton {
+    color: #fff;
+    background-color: #1890ff;
+    font-size: 16px;
+    padding: 5px 20px;
+    width: 80px;
+    border: 1px solid #fff;
+  }
+}
