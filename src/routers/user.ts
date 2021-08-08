@@ -10,6 +10,6 @@ export const user = [
   {
     path: '/register',
     exact: true,
-    Comment: register
+    component: register
   }
 ]

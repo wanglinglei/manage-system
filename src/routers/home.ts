@@ -4,6 +4,10 @@ export const home = [
   {
     path: "/",
     exact: true,
-    component: homePage
+    title: '总览',
+    component: homePage,
+    meta: {
+      isAuthorization: true
+    }
   },
 ]

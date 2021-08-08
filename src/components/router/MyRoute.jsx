@@ -7,6 +7,9 @@ export class MyRoute extends Component {
   constructor(props) {
     super(props)
   }
+  componentWillMount () {
+    console.log(this.props, 'routerpeops');
+  }
   render () {
     return (
       <Route>

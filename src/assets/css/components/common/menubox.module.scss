@@ -1,0 +1,59 @@
+.mainMenu {
+  width: 180px;
+  height: 100vh;
+  background-color: #304156;
+  color: #bfcbd9;
+
+  .submenu {
+    width: 100%;
+    overflow: hidden;
+    height: 40px;
+    transition: height 2s ease-in-out;
+
+    .submenuInfo {
+      padding: 10px 0;
+      padding-left: 20px;
+    }
+
+    // .submenuInfo:hover {
+    //   background-color: springgreen;
+    // }
+
+    .menuitemBox {
+      height: auto;
+      padding-left: 25px;
+      background-color: #1f2d3d;
+
+      .menuitem {
+        padding: 10px 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: #bfcbd9;
+        padding-left: 20px;
+      }
+
+      .actived {
+        color: #409eff;
+      }
+    }
+  }
+
+  .submenuSlected {
+    // background-color: red;
+    height: auto !important;
+    min-height: 41px;
+    // background-color: #1f2d3d;
+  }
+
+  // .submenu:hover {
+  //   min-height: 41px;
+  //   height: auto !important;
+  //   overflow: auto;
+
+  // }
+
+  .actived {
+    color: #409eff;
+  }
+}

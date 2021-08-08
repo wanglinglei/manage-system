@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import { Form, Input, Button, Radio, Checkbox, Space } from 'antd';
-import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined } from '@ant-design/icons';
 import loginCss from '../../assets/css/user/login.module.scss'
 import { getTimePeriod } from '../../utils/util'
 import InputBox from '../../components/common/InputBox'
@@ -17,14 +16,14 @@ export default class login extends Component {
       userName_set: {
         placeholder: '请输入用户名',
         iconLeft: 'icon-user',
-        // rule: /^[a-zA-Z0-9_]{6,8}$/,
+        rule: /^[a-zA-Z0-9_]{6,8}$/,
         errorText: '6到8位（字母，数字，下划线）',
         autofocus: true
       },
       password_set: {
         placeholder: '请输入密码',
         iconLeft: 'icon-passwd',
-        // rule: /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/,
+        rule: /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/,
         iconRight: 'icon-icon-test1',
         errorText: '最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符'
       }
@@ -67,6 +66,10 @@ export default class login extends Component {
       rememberPwd: e.target.checked
     })
   }
+  goResgiter () {
+    console.log(this);
+    this.props.history.push('/register')
+  }
   render () {
     return (
       <div className={loginCss.page}>
@@ -77,10 +80,9 @@ export default class login extends Component {
           <Checkbox className={loginCss.Checkbox} onChange={this.changeRememberPwd.bind(this)}>记住密码</Checkbox>
           <div className={loginCss.buttons}>
             <Button type="primary" className={loginCss.goLogin} onClick={this.loginIn.bind(this)}>立即登录</Button>
-            <Button type="primary" className={loginCss.goResgiter}>申请账号</Button>
+            <Button type="primary" className={loginCss.goResgiter} onClick={this.goResgiter.bind(this)}>申请账号</Button>
           </div>
         </div>
-
       </div>
     )
   }
