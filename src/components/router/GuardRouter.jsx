@@ -8,7 +8,12 @@ class GuardRouter extends Component {
     super(props);
   }
   render () {
-    return <this.props.component {...this.props} pathName={this.props.path} />;
+    return (
+      this.props.component ? <this.props.component {...this.props} pathName={this.props.path} /> :
+        this.props.children.map((item, index) => {
+          <item.component pathName={item.path} key={'component' + index} />
+        })
+    )
   }
   componentWillMount () {
     console.log(this.props, 'props');

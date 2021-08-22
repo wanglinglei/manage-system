@@ -10,6 +10,11 @@
     height: 40px;
     transition: height 2s ease-in-out;
 
+    a {
+      color: #bfcbd9 !important;
+      text-decoration: none;
+    }
+
     .submenuInfo {
       padding: 10px 0;
       padding-left: 20px;
@@ -31,10 +36,10 @@
         align-items: center;
         color: #bfcbd9;
         padding-left: 20px;
-      }
 
-      .actived {
-        color: #409eff;
+        .actived {
+          color: #409eff !important;
+        }
       }
     }
   }
@@ -53,7 +58,4 @@
 
   // }
 
-  .actived {
-    color: #409eff;
-  }
 }

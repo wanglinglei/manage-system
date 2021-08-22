@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { home } from '../../routers/home'
+import { admin } from '../../routers/admin'
 import { goodsManage } from '../../routers/goods-manage';
 import { orderManage } from '../../routers/order-manage';
-
+import { NavLink } from "react-router-dom";
 import menuboxCSs from '../../assets/css/components/common/menubox.module.scss'
 
 import { isEmpty } from '../../utils/util'
@@ -23,7 +24,7 @@ interface Iprops {
   onSelectSubitem?: Function,//选中二级菜单时回调
   multiple?: boolean,//是否支持展开多个 默认false
 }
-const menuList = [...home, ...goodsManage, ...orderManage].map((item: any, index) => {
+const menuList = [...home, ...admin, ...goodsManage, ...orderManage].map((item: any, index) => {
   if (item.children && item.children.length > 0) {
     return {
       ...item,
@@ -105,23 +106,27 @@ export default class Menubox extends Component<Iprops>{
               <div className={`${menuboxCSs.submenu} ${subitem.slected ? menuboxCSs.submenuSlected : ''} ${subitem.actived ? menuboxCSs.actived : ''}`}
                 onClick={this.selectSubMenu.bind(this, subindex)}
                 key={'sub' + subindex}>
-                <div className={menuboxCSs.submenuInfo}>{subitem.title}</div>
-                {
-                  subitem.children && subitem.children.length > 0 ? <div className={menuboxCSs.menuitemBox}>
-                    {
-                      subitem.children.map((menuitem, menuindex) => {
-                        return (
-                          <div className={`${menuboxCSs.menuitem} ${menuitem.actived ? menuboxCSs.actived : ''}`}
-                            key={'menu' + menuindex}
-                            onClick={this.selectSubitem.bind(this, subindex, menuindex)}>
-                            <div className={menuboxCSs.menuitemInfo}>{menuitem.title}</div>
-                          </div>
-                        )
-                      })
-                    }
-                  </div> : ''
+                <NavLink to={subitem.path} exact={subitem.exact} >
+                  <div className={menuboxCSs.submenuInfo}>{subitem.title}</div>
+                  {
+                    subitem.children && subitem.children.length > 0 ? <div className={menuboxCSs.menuitemBox}>
+                      {
+                        subitem.children.map((menuitem, menuindex) => {
+                          return (
+                            <div className={`${menuboxCSs.menuitem} `}
+                              key={'menu' + menuindex}
+                              onClick={this.selectSubitem.bind(this, subindex, menuindex)}>
+                              <NavLink to={subitem.path + menuitem.path} exact={menuitem.exact}>
+                                <div className={menuitem.actived ? menuboxCSs.actived : ''}>{menuitem.title}</div>
+                              </NavLink>
+                            </div>
+                          )
+                        })
+                      }
+                    </div> : ''
 
-                }
+                  }
+                </NavLink>
               </div>
             )
           })
